@@ -3,6 +3,12 @@
 (() => {
   const playerVars = window.mvcur?.player?.vars || window.cur?.videoInlinePlayer?.vars;
 
+  if (!playerVars) {
+    return;
+  }
+
+  document.querySelector("#vkVideoDownloaderPanel")?.remove();
+
   const videoSources = {
     "144p": playerVars.url144,
     "240p": playerVars.url240,
@@ -15,26 +21,29 @@
   };
 
   const label = document.createElement("span");
-  label.innerText = "Скачать:";
+  label.textContent = "Скачать:";
   label.style.marginRight = "2px";
 
   const panel = document.createElement("div");
   panel.id = "vkVideoDownloaderPanel";
-  panel.style.position = "fixed";
-  panel.style.left = "16px";
-  panel.style.bottom = "16px";
-  panel.style.zIndex = "2147483647";
-  panel.style.padding = "4px";
-  panel.style.color = "#fff";
-  panel.style.backgroundColor = "#07f";
-  panel.style.border = "1px solid #fff";
+  Object.assign(panel.style, {
+    position: "fixed",
+    left: "16px",
+    bottom: "16px",
+    zIndex: "2147483647",
+    padding: "4px",
+    color: "#fff",
+    backgroundColor: "#07f",
+    border: "1px solid #fff",
+  });
   panel.appendChild(label);
 
   for (const [quality, url] of Object.entries(videoSources)) {
-    if (typeof url !== "undefined") {
+    if (url) {
       const aTag = document.createElement("a");
       aTag.href = url;
-      aTag.innerText = quality;
+      aTag.target = "_blank";
+      aTag.textContent = quality;
       aTag.style.margin = "0 2px";
       aTag.style.color = "#fff";
       panel.appendChild(aTag);
