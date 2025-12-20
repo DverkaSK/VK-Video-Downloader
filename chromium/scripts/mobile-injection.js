@@ -1,11 +1,11 @@
 "use strict";
 
 (() => {
-  const isClip = /^\/clip[^\/]+$/.test(location.pathname);
   let videoSources = {};
+  const isClip = /^\/clip[^\/]+$/.test(location.pathname);
 
   if (!isClip) {
-    videoSources = window.videoMvkSdk.config.videos[0].sources.MPEG;
+    videoSources = window.videoMvkSdk?.config?.videos?.[0]?.sources?.MPEG;
   } else {
     const sourceTags = Array.from(document.querySelectorAll('video source[type="video/mp4"]')).reverse();
 
@@ -30,29 +30,39 @@
     }
   }
 
+  if (!videoSources || Object.keys(videoSources).length === 0) {
+    return;
+  }
+
+  document.querySelector("#vkVideoDownloaderPanel")?.remove();
+
   const label = document.createElement("span");
-  label.innerText = "Скачать:";
+  label.textContent = "Скачать:";
   label.style.marginRight = "2px";
 
   const panel = document.createElement("div");
   panel.id = "vkVideoDownloaderPanel";
-  panel.style.position = "fixed";
-  panel.style.left = "16px";
-  panel.style.bottom = "16px";
-  panel.style.zIndex = "2147483647";
-  panel.style.padding = "4px";
-  panel.style.color = "#fff";
-  panel.style.backgroundColor = "#07f";
-  panel.style.border = "1px solid #fff";
+  Object.assign(panel.style, {
+    position: "fixed",
+    left: "16px",
+    bottom: "16px",
+    zIndex: "2147483647",
+    padding: "4px",
+    color: "#fff",
+    backgroundColor: "#07f",
+    border: "1px solid #fff",
+  });
   panel.appendChild(label);
 
   for (const [quality, url] of Object.entries(videoSources)) {
-    const aTag = document.createElement("a");
-    aTag.href = url;
-    aTag.innerText = quality;
-    aTag.style.margin = "0 2px";
-    aTag.style.color = "#fff";
-    panel.appendChild(aTag);
+    if (url) {
+      const aTag = document.createElement("a");
+      aTag.href = url;
+      aTag.textContent = quality;
+      aTag.style.margin = "0 2px";
+      aTag.style.color = "#fff";
+      panel.appendChild(aTag);
+    }
   }
 
   document.body.appendChild(panel);
