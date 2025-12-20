@@ -7,7 +7,7 @@
   "content_scripts": [
     {
       "js": ["scripts/desktop.js"],
-      "matches": ["https://vk.com/*", "https://vk.ru/*", "https://vkvideo.ru/*"],
+      "matches": ["https://vk.com/*", "https://vk.ru/*", "https://vkvideo.ru/*", "https://vksport.vkvideo.ru/*"],
       "run_at": "document_idle"
     },
     {
@@ -19,7 +19,7 @@
   "web_accessible_resources": [
     {
       "resources": ["scripts/desktop-injection.js"],
-      "matches": ["https://vk.com/*", "https://vk.ru/*", "https://vkvideo.ru/*"]
+      "matches": ["https://vk.com/*", "https://vk.ru/*", "https://vkvideo.ru/*", "https://vksport.vkvideo.ru/*"]
     },
     {
       "resources": ["scripts/mobile-injection.js"],

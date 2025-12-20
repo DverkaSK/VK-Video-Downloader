@@ -42,7 +42,9 @@
     ) {
       checkerHasBeenCalled = true;
       const checker = setInterval(() => {
-        if (!showPanelHasBeenCalled && document.querySelector("#video_player .shadow-root-container").shadowRoot.querySelector("video")) {
+        const player = document.querySelector("#video_player video")
+          || document.querySelector("#video_player .shadow-root-container")?.shadowRoot?.querySelector("video");
+        if (!showPanelHasBeenCalled && player) {
           showPanelHasBeenCalled = true;
           clearInterval(checker);
           document.body.appendChild(createDownloadPanel());
