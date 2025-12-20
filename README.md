@@ -32,6 +32,7 @@
 * [iamcringyfox](https://github.com/iamcringyfox) за добавление скачивания со страниц плейлистов
 * [VerMishelb](https://github.com/VerMishelb) за напоминание о существовании домена [vk.ru](https://vk.ru)
 * [Korb](https://github.com/Korb) за добавление установки по URL в TamperMonkey
+* [garex](https://github.com/garex) за добавление поддержки VK Sport и плеера в ShadowDOM
 
 ## Информация о лицензии
 Продукт распространяется под лицензией MIT.
