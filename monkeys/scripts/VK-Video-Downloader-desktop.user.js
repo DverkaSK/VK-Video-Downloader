@@ -115,7 +115,6 @@
       if (url) {
         const aTag = document.createElement("a");
         aTag.href = url;
-        aTag.target = "_blank";
         aTag.textContent = quality;
         aTag.style.margin = "0 2px";
         aTag.style.color = "#fff";
