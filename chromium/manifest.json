@@ -12,7 +12,7 @@
     },
     {
       "js": ["scripts/mobile.js"],
-      "matches": ["https://m.vk.com/*"],
+      "matches": ["https://m.vk.com/*", "https://m.vk.ru/*"],
       "run_at": "document_idle"
     }
   ],
@@ -23,7 +23,7 @@
     },
     {
       "resources": ["scripts/mobile-injection.js"],
-      "matches": ["https://m.vk.com/*"]
+      "matches": ["https://m.vk.com/*", "https://m.vk.ru/*"]
     }
   ],
   "icons": {

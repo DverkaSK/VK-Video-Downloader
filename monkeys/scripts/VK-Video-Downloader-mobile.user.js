@@ -5,6 +5,7 @@
 // @description  Скачивайте видео с сайта «ВКонтакте» в желаемом качестве
 // @author       Kirill "JustKappaMan" Volozhanin
 // @match        https://m.vk.com/*
+// @match        https://m.vk.ru/*
 // @run-at       document-idle
 // @icon         https://raw.githubusercontent.com/JustKappaMan/VK-Video-Downloader/main/monkeys/icons/icon128.png
 // @homepageURL  https://github.com/JustKappaMan/VK-Video-Downloader
