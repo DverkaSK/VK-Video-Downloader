@@ -57,6 +57,7 @@ function startPlayerSearch() {
 
 function showDownloadPanel() {
   const script = document.createElement("script");
+  script.charset = "utf-8";
   script.src = chrome.runtime.getURL("scripts/desktop-injection.js");
   script.onload = () => script.remove();
 
