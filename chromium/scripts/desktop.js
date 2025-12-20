@@ -1,51 +1,62 @@
 "use strict";
 
-let lastUrl = location.href;
-let checkerHasBeenCalled = false;
-let showPanelHasBeenCalled = false;
+let currentUrl = location.href;
+let searchTimer = null;
 
-new MutationObserver(() => {
-  if (location.href !== lastUrl) {
-    lastUrl = location.href;
-    checkerHasBeenCalled = false;
-    showPanelHasBeenCalled = false;
+setInterval(() => {
+  if (location.href !== currentUrl) {
+    currentUrl = location.href;
+    handleUrlChange();
+  }
+}, 500);
 
-    document.querySelector("#vkVideoDownloaderPanel")?.remove();
+handleUrlChange();
+
+function handleUrlChange() {
+  document.querySelector("#vkVideoDownloaderPanel")?.remove();
+
+  if (searchTimer) {
+    clearInterval(searchTimer);
+    searchTimer = null;
   }
 
   const isVideoUrl = /z=(?:video|clip)/.test(location.search)
     || /^\/(?:video|clip)[^\/s]+$/.test(location.pathname)
     || /^\/playlist\/[\d-]+/.test(location.pathname);
 
-  if (isVideoUrl && !checkerHasBeenCalled) {
-    checkerHasBeenCalled = true;
-    const checker = setInterval(() => {
-      if (showPanelHasBeenCalled) {
-        clearInterval(checker);
-        return;
-      }
-
-      const player = document.querySelector("#video_player video")
-        || document.querySelector("#video_player .shadow-root-container")?.shadowRoot?.querySelector("video");
-
-      const iframe = player ? null : document.querySelector("#video_player iframe");
-
-      if (!player && !iframe) {
-        return;
-      } else if (player) {
-        showDownloadPanel();
-      } else if (iframe) {
-        showErrorPanel();
-      }
-
-      showPanelHasBeenCalled = true;
-    }, 500);
+  if (isVideoUrl) {
+    startPlayerSearch();
   }
-}).observe(document.body, { subtree: true, childList: true });
+}
+
+function startPlayerSearch() {
+  searchTimer = setInterval(() => {
+    if (location.href !== currentUrl) {
+      clearInterval(searchTimer);
+      return;
+    }
+
+    const player = document.querySelector("#video_player video")
+      || document.querySelector("#video_player .shadow-root-container")?.shadowRoot?.querySelector("video");
+
+    const iframe = player ? null : document.querySelector("#video_player iframe");
+
+    if (!player && !iframe) {
+      return
+    };
+
+    clearInterval(searchTimer);
+
+    if (player) {
+      showDownloadPanel();
+    } else {
+      showErrorPanel();
+    }
+  }, 500);
+}
 
 function showDownloadPanel() {
   const script = document.createElement("script");
-
   script.src = chrome.runtime.getURL("scripts/desktop-injection.js");
   script.onload = () => script.remove();
 
