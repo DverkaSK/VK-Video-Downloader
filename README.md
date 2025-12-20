@@ -1,6 +1,6 @@
 # VK Video Downloader
 ![MIT License](https://img.shields.io/github/license/JustKappaMan/VK-Video-Downloader)
-![Version 1.1.13](https://img.shields.io/badge/version-1.1.13-blue)
+![Version 1.2.0](https://img.shields.io/badge/version-1.2.0-blue)
 ![Checked with ESLint](https://img.shields.io/badge/ESLint-checked-blueviolet)
 
 В 2023 году у меня был смартфон Xiaomi Redmi 7. Смотря видео в VK, я сталкивался с:
