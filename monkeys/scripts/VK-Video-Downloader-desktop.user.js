@@ -7,6 +7,7 @@
 // @match        https://vk.com/*
 // @match        https://vk.ru/*
 // @match        https://vkvideo.ru/*
+// @match        https://vksport.vkvideo.ru/*
 // @run-at       document-idle
 // @icon         https://raw.githubusercontent.com/JustKappaMan/VK-Video-Downloader/main/monkeys/icons/icon128.png
 // @homepageURL  https://github.com/JustKappaMan/VK-Video-Downloader
@@ -41,7 +42,7 @@
     ) {
       checkerHasBeenCalled = true;
       const checker = setInterval(() => {
-        if (!showPanelHasBeenCalled && document.querySelector("#video_player video")) {
+        if (!showPanelHasBeenCalled && document.querySelector("#video_player .shadow-root-container").shadowRoot.querySelector("video")) {
           showPanelHasBeenCalled = true;
           clearInterval(checker);
           document.body.appendChild(createDownloadPanel());
