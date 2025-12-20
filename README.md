@@ -22,7 +22,7 @@
   * [Установить mobile версию](https://github.com/JustKappaMan/VK-Video-Downloader/raw/refs/heads/main/monkeys/scripts/VK-Video-Downloader-mobile.user.js)
 
 ## Как пользоваться
-* Откройте любое видео на [vk.com](https://vk.com)/[vk.ru](https://vk.ru)/[m.vk.com](https://m.vk.com)/[vkvideo.ru](https://vkvideo.ru)
+* Откройте страницу любого видео в VK
 * Кликните по одной из появившихся в левом нижнем углу браузера ссылок для скачивания
 * Наслаждайтесь локальным просмотром видео в желаемом качестве 🥳
 
