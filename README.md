@@ -1,6 +1,6 @@
 # VK Video Downloader
 ![MIT License](https://img.shields.io/github/license/JustKappaMan/VK-Video-Downloader)
-![Version 1.1.12](https://img.shields.io/badge/version-1.1.12-blue)
+![Version 1.1.13](https://img.shields.io/badge/version-1.1.13-blue)
 ![Checked with ESLint](https://img.shields.io/badge/ESLint-checked-blueviolet)
 
 Относительно недавно просмотр видео в VK на бюджетных устройствах (особенно в приложении) стал невозможен по ряду причин:
