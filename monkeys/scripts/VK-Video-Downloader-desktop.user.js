@@ -6,8 +6,7 @@
 // @author       Kirill "JustKappaMan" Volozhanin
 // @match        https://vk.com/*
 // @match        https://vk.ru/*
-// @match        https://vkvideo.ru/*
-// @match        https://vksport.vkvideo.ru/*
+// @match        https://*.vkvideo.ru/*
 // @run-at       document-idle
 // @icon         https://raw.githubusercontent.com/JustKappaMan/VK-Video-Downloader/main/monkeys/icons/icon128.png
 // @homepageURL  https://github.com/JustKappaMan/VK-Video-Downloader
